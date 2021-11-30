@@ -1,10 +1,12 @@
 'use strict';
 
-const getNod=(num1, num2) =>  {
-  if (num2 > 0) {
-    let nod = num1 % num2;
-    return console.log(`Наибольший общий делитель : ${nod}`);
+const getNod = (a, b) => {
+  let c = 0;
+  while (a !== 0) {
+    c = b % a;
+    b = a;
+    a = c;
   }
- }
+  return console.log(`Наибольший общий делитель: ${b}`);
+}
 getNod(45, 150);
-

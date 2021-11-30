@@ -1,9 +1,7 @@
 'use strict';
 
 const getMinNumber = (num1, num2) => {
-    const number01 = num1;
-    const number02 = num2;
-    const res = (number01 < number02) ? number01 : number02;
-    return console.log(`Минимальное число равно ${res}`);
+    const res = (num1 + num2 - Math.abs(num1-num2))/2;
+    return console.log(`Минимальное число: ${res}`);
 }
-getMinNumber(15, 45);
+getMinNumber(75, 45);
