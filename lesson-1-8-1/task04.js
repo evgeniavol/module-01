@@ -10,6 +10,8 @@ const getRandomArrayElement = (n, m) => {
     if (num1 > num2) {
         max = num1;
         min = num2;
+    } else if (num1 === num2) {
+         console.log('Введите разные года');
     } else {
         max = num2;
         min = num1;
@@ -18,8 +20,7 @@ const getRandomArrayElement = (n, m) => {
     for (let i = min; i <= max; i++) {
         years.push(i);
     }
-     result= years.filter(year => year % 400 === 0 || year % 100 !== 0 && year % 4 === 0);
-     return console.log(result);
+    result = years.filter(year => year % 400 === 0 || year % 100 !== 0 && year % 4 === 0);
+    return console.log(result);
 }
 getRandomArrayElement(1990, 2021);
-

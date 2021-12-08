@@ -1,23 +1,30 @@
 'use strict';
 
-const getRandomArrayElement = (num, n, m) => {
-    const arr = Array(num);
+const getRandomArrayElement = (numbers, n, m) => {
+    let arr = [];
     const num1 = n;
     const num2 = m;
     let max;
     let min;
-    let res;
+    let num = numbers;
 
     if (num1 > num2) {
         max = num1;
         min = num2;
+    } else if (num1 === num2) {
+        console.log('Введите разные значения');
     } else {
         max = num2;
         min = num1;
     }
-    res = Array.from({length: num}, () => Math.round(Math.random() * Math.abs(max - min) + min));
 
-    return console.log(res);
+    for (let i = 0; i < num; i++) {
+
+        for (let k = min; k <= max; k++) {
+            arr.push(k);
+        }
+        return console.log(arr);
+    }
 }
 
-getRandomArrayElement(5, 10, 5);
+getRandomArrayElement(3, 5, 25);
