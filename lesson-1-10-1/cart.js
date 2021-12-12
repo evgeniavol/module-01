@@ -3,10 +3,11 @@
 const cart = {
     items: [],
     count: 0,
-    totalPrice:  {
-    get totalPrice() {
-        return console.log(this.calculateItemPrice);
-    }},
+    totalPrice: {
+        get totalPrice() {
+            return console.log(this.calculateItemPrice);
+        }
+    },
     calculateItemPrice() {
         this.totalPrice = this.count * this.totalPrice
     },
@@ -14,10 +15,23 @@ const cart = {
         this.count += this.count
         return console.log(this.count)
     },
-    add(items, count, totalPrice, ) {
+    add(items, count, totalPrice) {
         this.items = items
         this.count = count
         this.totalPrice = totalPrice
+
+        let obj = {
+            items,
+            count,
+            totalPrice
+        }
+
+        let result = {}
+
+        for (let key in obj) {
+            result[key] = obj[key];
+        }
+
         this.calculateItemPrice()
     },
 
@@ -30,6 +44,6 @@ const cart = {
         console.log(JSON.stringify(cart));
     }
 }
-console.log(cart.add('apple', 5, 100));
-console.log(cart.add('lemon', 15, 10));
+cart.add('lemon', 15, 10);
+
 cart.print();
