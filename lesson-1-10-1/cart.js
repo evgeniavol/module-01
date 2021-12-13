@@ -1,38 +1,35 @@
-'use strict';
+"use strict";
 
 const cart = {
     items: [],
     count: 0,
-    totalPrice: {
-        get totalPrice() {
-            return console.log(this.calculateItemPrice);
-        }
+    get totalPrice() {
+        return this.calculateItemPrice();
     },
+
     calculateItemPrice() {
-        this.totalPrice = this.count * this.totalPrice
+        let calculateItemsPrice = 0;
+        this.items.forEach(item => {
+            calculateItemsPrice += item.count *item.totalPrice;
+        })
+         return calculateItemsPrice;
     },
-    increaseCount() {
-        this.count += this.count
-        return console.log(this.count)
+
+    increaseCount(count) {
+        this.count += count
+        return this.count + count;
     },
+
     add(items, count, totalPrice) {
-        this.items = items
-        this.count = count
-        this.totalPrice = totalPrice
+        this.increaseCount(count);
 
         let obj = {
-            items,
-            count,
-            totalPrice
+            itemName: items,
+            count: count,
+            totalPrice: totalPrice
         }
 
-        let result = {}
-
-        for (let key in obj) {
-            result[key] = obj[key];
-        }
-
-        this.calculateItemPrice()
+        this.items.push(obj);
     },
 
     clear() {
@@ -44,6 +41,9 @@ const cart = {
         console.log(JSON.stringify(cart));
     }
 }
-cart.add('lemon', 15, 10);
+
+cart.add('lemon', 5, 10);
+cart.add('pineapple', 3, 10);
+cart.add('peach', 10, 10);
 
 cart.print();
