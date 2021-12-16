@@ -10,10 +10,10 @@ const rectangle = {
         return `"${this.width * this.height} см"`;
     },
     set newWidth(width) {
-        return this.width = parseInt(this.width + width);
+        return this.width = parseInt(this.width);
     },
     set newHeight(heigth) {
-        this.heigth = parseInt(this.heigth + heigth);
+        this.heigth = parseInt(this.heigth);
     },
 }
 
