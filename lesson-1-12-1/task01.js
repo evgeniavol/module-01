@@ -2,20 +2,19 @@
 
 let hiddenNum = parseInt(Math.random() * 100);
 
-function guessNumber() {
-  let userNumber = prompt('Угадай число');
+function guessNumber(num) {
+  let userNumber = parseInt(prompt('Угадай число'));
 
-  if (userNumber > hiddenNum) {
+  if (userNumber > num) {
     alert('Меньше!');
-  } else if (userNumber < hiddenNum) {
+  } else if (userNumber < num) {
     alert('Больше!');
-  } else if (userNumber === hiddenNum) {
+  } else if (userNumber === num) {
     alert('Правильно, Вы угадали загаданное число!');
-    return userNumber;
   } else {
-    alert('Введите число');
+    return;
   }
-  return guessNumber();
+  guessNumber(num);
 }
 
-console.log(guessNumber());
+guessNumber(hiddenNum);
