@@ -26,7 +26,7 @@ const cart = {
 
     increaseCount(count) {
         this.count += count
-        return this.count + count;
+        return this.count;
     },
 
     add(items, count, totalPrice) {
