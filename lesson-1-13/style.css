@@ -1,0 +1,25 @@
+body {
+    background-color: #383854;
+}
+
+.container {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #D1F5FF;
+    font-size: 30px;
+    text-align: center;
+}
+
+h2 {
+    color: #D1F5FF;
+    text-align: center;
+    font-size: 28px;
+}
+
+.image {
+    display: block;
+    text-align: center;
+}
