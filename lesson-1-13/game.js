@@ -5,7 +5,9 @@
     const FIGURES_RUS = ['камень', 'ножницы', 'бумага'];
 
     const getRandomIntInclusive = (min, max) => {
-
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * max + min);
     };
 
     const getFigure = lang => {
@@ -15,43 +17,54 @@
 
     const game = () => {
 
-        let playerChoice = prompt('камень, ножницы, бумага?');
+       let playerChoice = prompt('камень, ножницы, бумага?');
         let userPoints = 0;
         let computerPoints = 0;
 
+
         if (playerChoice) {
             let playerOne = playerChoice.trim().toLowerCase();
+
             if (playerOne === 'камень' ||
                 playerOne === 'ножницы' ||
                 playerOne === 'бумага'
             ) {
-                let computerChoice = Math.floor(Math.random() * 3 + 1);
+                let computerChoice = getRandomIntInclusive(1, 3);
                 let computer = computerChoice === 1 ? 'камень' : computerChoice === 2 ? 'бумага' : 'ножницы';
-                if (playerOne === computer) {
-                    alert('Ничья');
-                    userPoints++;
-                    computerPoints++;
-                    alert('Ещё?');
-                } else if (playerOne === 'камень' && computer === 'бумага') {
-                    alert(`Игрок: ${playerOne}\nКомпьютер: ${computer}
-            \nВыиграл компьютер!`);
-                    computerPoints++;
-                    alert('Ещё?');
-                } else if (playerOne === 'бумага' && computer === 'ножницы') {
-                    alert(`Игрок: ${playerOne}\nКомпьютер: ${computer}
-            \nВыиграл компьютер!`);
-                    computerPoints++;
-                    alert('Ещё?');
 
-                } else if (playerOne === 'ножницы' && computer === 'камень') {
-                    alert(`Игрок: ${playerOne}\nКомпьютер: ${computer}\nВы выиграли!`);
+                if (playerOne === computer) {
                     userPoints++;
-                    alert('Ещё?');
+                    computerPoints++;
+                    alert('Ничья');
+                } else if (playerOne === 'камень') {
+                    if (computer === 'бумага') {
+                        alert('Компьютер выиграл!');
+                        computerPoints++;
+                    } else {
+                        userPoints++;
+                        alert('Вы выиграли!');
+                    }
+                } else if (playerOne === 'ножницы') {
+                    if (computer === 'камень') {
+                        computerPoints++;
+                        alert('Компьютер выиграл!');
+                    } else {
+                        userPoints++;
+                        alert('Вы выиграли!');
+                    }
+                } else if (playerOne === 'бумага') {
+                    if (computer === 'ножницы') {
+                        alert('Компьютер выиграл!');
+                        computerPoints++;
+                    } else {
+                        userPoints++;
+                        alert('Вы выиграли!');
+                    }
                 }
             } else {
                 alert("Вы не ввели камень, ножницы, бумага.");
             }
-            game(playerChoice);
+
         } else {
             alert('Точно ли хочешь покинуть игру?');
             alert(`Результат:\nИгрок набрал: ${userPoints} очк.\nКомпьютер набрал: ${computerPoints} очк.`);
