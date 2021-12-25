@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #071E3D;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+h1 {
+    margin-top: 50px;
+    text-align: center;
+    color: #21E6C1;
+    font-size: 32px;
+}
