@@ -33,11 +33,9 @@ function playGame() {
                 alert('Игра окончена игрок проиграл');
                 return;
             }
-            if (confirm(`Бот выбрал ${checkEven(compEvenOdd)}:
+            confirm(`Бот выбрал ${checkEven(compEvenOdd)}:
                 бот: ${compCountBalls};
-                игрок: ${playerCountBalls};`) === false) {
-                return;
-            };
+                игрок: ${playerCountBalls};`);
             alert('Ход бота');
 
             numBot = guessCompBalls;
